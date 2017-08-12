@@ -213,7 +213,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <OutDir>$(ProjectDir)..\..\..\msvc\lib\x86\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
     <TargetName>libgpg-errord</TargetName>
     <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
@@ -221,11 +221,11 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
     <TargetName>libgpg-errord</TargetName>
-    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <OutDir>$(ProjectDir)..\..\..\msvc\lib\x64\</OutDir>
     <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
-    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <OutDir>$(ProjectDir)..\..\..\msvc\lib\x86\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
     <TargetName>gpg-errord</TargetName>
     <LinkIncremental>false</LinkIncremental>
@@ -234,18 +234,18 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'">
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
     <TargetName>gpg-errord</TargetName>
-    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <OutDir>$(ProjectDir)..\..\..\msvc\lib\x64\</OutDir>
     <LinkIncremental>false</LinkIncremental>
     <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <OutDir>$(ProjectDir)..\..\..\msvc\lib\x86\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
     <TargetName>libgpg-error</TargetName>
     <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|Win32'">
-    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <OutDir>$(ProjectDir)..\..\..\msvc\lib\x86\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
     <TargetName>libgpg-error</TargetName>
     <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
@@ -253,17 +253,17 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
     <TargetName>libgpg-error</TargetName>
-    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <OutDir>$(ProjectDir)..\..\..\msvc\lib\x64\</OutDir>
     <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|x64'">
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
     <TargetName>libgpg-error</TargetName>
-    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <OutDir>$(ProjectDir)..\..\..\msvc\lib\x64\</OutDir>
     <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'">
-    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <OutDir>$(ProjectDir)..\..\..\msvc\lib\x86\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
     <TargetName>gpg-error</TargetName>
     <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
@@ -271,7 +271,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'">
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
     <TargetName>gpg-error</TargetName>
-    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <OutDir>$(ProjectDir)..\..\..\msvc\lib\x64\</OutDir>
     <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -283,23 +283,23 @@
       <AdditionalIncludeDirectories>.\;.\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ExceptionHandling>false</ExceptionHandling>
       <DisableSpecificWarnings>4996;4018;4005;4244;4267;4312;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <TargetMachine>MachineX86</TargetMachine>
       <SubSystem>Windows</SubSystem>
       <AdditionalDependencies>Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-copy .\src\gpg-error.h $(OutDir)\include\
-mkdir $(OutDir)\licenses
-copy ..\COPYING.LIB $(OutDir)\licenses\libgpg-error.txt</Command>
+      <Command>mkdir $(OutDir)..\..\include
+copy .\src\gpg-error.h $(OutDir)..\..\include\
+mkdir $(OutDir)..\..\licenses
+copy ..\COPYING.LIB $(OutDir)..\..\licenses\libgpg-error.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -332,8 +332,8 @@ del ..\src\lock-obj-pub.native.h
 if exist ..\src\gpg-error.h (
 del ..\src\gpg-error.h
 )
-if exist $(OutDir)\include\gpg-error.h (
-del $(OutDir)\include\gpg-error.h
+if exist $(OutDir)..\..\include\gpg-error.h (
+del $(OutDir)..\..\include\gpg-error.h
 )
 if not exist .\src\err-sources.h (
 awk -f ..\src\mkstrtable.awk -v textidx=3 ..\src\err-sources.h.in &gt; .\src\err-sources.h
@@ -376,23 +376,23 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
       <AdditionalIncludeDirectories>.\;.\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ExceptionHandling>false</ExceptionHandling>
       <DisableSpecificWarnings>4996;4018;4005;4244;4267;4312;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <ProgramDataBaseFileName>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <OutputFile>$(OutDir)\lib\x64\$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <TargetMachine>MachineX64</TargetMachine>
       <SubSystem>Windows</SubSystem>
       <AdditionalDependencies>Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-copy .\src\gpg-error.h $(OutDir)\include\
-mkdir $(OutDir)\licenses
-copy ..\COPYING.LIB $(OutDir)\licenses\libgpg-error.txt</Command>
+      <Command>mkdir $(OutDir)..\..\include
+copy .\src\gpg-error.h $(OutDir)..\..\include\
+mkdir $(OutDir)..\..\licenses
+copy ..\COPYING.LIB $(OutDir)..\..\licenses\libgpg-error.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -425,8 +425,8 @@ del ..\src\lock-obj-pub.native.h
 if exist ..\src\gpg-error.h (
 del ..\src\gpg-error.h
 )
-if exist $(OutDir)\include\gpg-error.h (
-del $(OutDir)\include\gpg-error.h
+if exist $(OutDir)..\..\include\gpg-error.h (
+del $(OutDir)..\..\include\gpg-error.h
 )
 if not exist .\src\err-sources.h (
 awk -f ..\src\mkstrtable.awk -v textidx=3 ..\src\err-sources.h.in &gt; .\src\err-sources.h
@@ -474,10 +474,10 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <OutputFile>$(OutDir)\bin\x86\$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
-      <ImportLibrary>$(OutDir)\lib\x86\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
       <ModuleDefinitionFile>libgpg-error.def</ModuleDefinitionFile>
       <LargeAddressAware>true</LargeAddressAware>
@@ -486,10 +486,10 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
       <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
     </Link>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-copy .\src\gpg-error.h $(OutDir)\include\
-mkdir $(OutDir)\licenses
-copy ..\COPYING.LIB $(OutDir)\licenses\libgpg-error.txt</Command>
+      <Command>mkdir $(OutDir)..\..\include
+copy .\src\gpg-error.h $(OutDir)..\..\include\
+mkdir $(OutDir)..\..\licenses
+copy ..\COPYING.LIB $(OutDir)..\..\licenses\libgpg-error.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -522,8 +522,8 @@ del ..\src\lock-obj-pub.native.h
 if exist ..\src\gpg-error.h (
 del ..\src\gpg-error.h
 )
-if exist $(OutDir)\include\gpg-error.h (
-del $(OutDir)\include\gpg-error.h
+if exist $(OutDir)..\..\include\gpg-error.h (
+del $(OutDir)..\..\include\gpg-error.h
 )
 if not exist .\src\err-sources.h (
 awk -f ..\src\mkstrtable.awk -v textidx=3 ..\src\err-sources.h.in &gt; .\src\err-sources.h
@@ -570,10 +570,10 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <OutputFile>$(OutDir)\bin\x64\$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
-      <ImportLibrary>$(OutDir)\lib\x64\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
       <ModuleDefinitionFile>libgpg-error.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -581,10 +581,10 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
       <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </Link>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-copy .\src\gpg-error.h $(OutDir)\include\
-mkdir $(OutDir)\licenses
-copy ..\COPYING.LIB $(OutDir)\licenses\libgpg-error.txt</Command>
+      <Command>mkdir $(OutDir)..\..\include
+copy .\src\gpg-error.h $(OutDir)..\..\include\
+mkdir $(OutDir)..\..\licenses
+copy ..\COPYING.LIB $(OutDir)..\..\licenses\libgpg-error.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -617,8 +617,8 @@ del ..\src\lock-obj-pub.native.h
 if exist ..\src\gpg-error.h (
 del ..\src\gpg-error.h
 )
-if exist $(OutDir)\include\gpg-error.h (
-del $(OutDir)\include\gpg-error.h
+if exist $(OutDir)..\..\include\gpg-error.h (
+del $(OutDir)..\..\include\gpg-error.h
 )
 if not exist .\src\err-sources.h (
 awk -f ..\src\mkstrtable.awk -v textidx=3 ..\src\err-sources.h.in &gt; .\src\err-sources.h
@@ -672,7 +672,7 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
       <ExceptionHandling>false</ExceptionHandling>
       <DisableSpecificWarnings>4996;4018;4005;4244;4267;4312;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <InterproceduralOptimization>SingleFile</InterproceduralOptimization>
-      <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
@@ -681,16 +681,16 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <TargetMachine>MachineX86</TargetMachine>
       <SubSystem>Windows</SubSystem>
       <AdditionalDependencies>Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-copy .\src\gpg-error.h $(OutDir)\include\
-mkdir $(OutDir)\licenses
-copy ..\COPYING.LIB $(OutDir)\licenses\libgpg-error.txt</Command>
+      <Command>mkdir $(OutDir)..\..\include
+copy .\src\gpg-error.h $(OutDir)..\..\include\
+mkdir $(OutDir)..\..\licenses
+copy ..\COPYING.LIB $(OutDir)..\..\licenses\libgpg-error.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -723,8 +723,8 @@ del ..\src\lock-obj-pub.native.h
 if exist ..\src\gpg-error.h (
 del ..\src\gpg-error.h
 )
-if exist $(OutDir)\include\gpg-error.h (
-del $(OutDir)\include\gpg-error.h
+if exist $(OutDir)..\..\include\gpg-error.h (
+del $(OutDir)..\..\include\gpg-error.h
 )
 if not exist .\src\err-sources.h (
 awk -f ..\src\mkstrtable.awk -v textidx=3 ..\src\err-sources.h.in &gt; .\src\err-sources.h
@@ -778,7 +778,7 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
       <ExceptionHandling>false</ExceptionHandling>
       <DisableSpecificWarnings>4996;4018;4005;4244;4267;4312;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <InterproceduralOptimization>SingleFile</InterproceduralOptimization>
-      <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
@@ -787,16 +787,16 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <TargetMachine>MachineX86</TargetMachine>
       <SubSystem>Windows</SubSystem>
       <AdditionalDependencies>Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-copy .\src\gpg-error.h $(OutDir)\include\
-mkdir $(OutDir)\licenses
-copy ..\COPYING.LIB $(OutDir)\licenses\libgpg-error.txt</Command>
+      <Command>mkdir $(OutDir)..\..\include
+copy .\src\gpg-error.h $(OutDir)..\..\include\
+mkdir $(OutDir)..\..\licenses
+copy ..\COPYING.LIB $(OutDir)..\..\licenses\libgpg-error.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -829,8 +829,8 @@ del ..\src\lock-obj-pub.native.h
 if exist ..\src\gpg-error.h (
 del ..\src\gpg-error.h
 )
-if exist $(OutDir)\include\gpg-error.h (
-del $(OutDir)\include\gpg-error.h
+if exist $(OutDir)..\..\include\gpg-error.h (
+del $(OutDir)..\..\include\gpg-error.h
 )
 if not exist .\src\err-sources.h (
 awk -f ..\src\mkstrtable.awk -v textidx=3 ..\src\err-sources.h.in &gt; .\src\err-sources.h
@@ -884,7 +884,7 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
       <ExceptionHandling>false</ExceptionHandling>
       <DisableSpecificWarnings>4996;4018;4005;4244;4267;4312;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <InterproceduralOptimization>SingleFile</InterproceduralOptimization>
-      <ProgramDataBaseFileName>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
@@ -893,16 +893,16 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <OutputFile>$(OutDir)\lib\x64\$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <TargetMachine>MachineX64</TargetMachine>
       <SubSystem>Windows</SubSystem>
       <AdditionalDependencies>Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-copy .\src\gpg-error.h $(OutDir)\include\
-mkdir $(OutDir)\licenses
-copy ..\COPYING.LIB $(OutDir)\licenses\libgpg-error.txt</Command>
+      <Command>mkdir $(OutDir)..\..\include
+copy .\src\gpg-error.h $(OutDir)..\..\include\
+mkdir $(OutDir)..\..\licenses
+copy ..\COPYING.LIB $(OutDir)..\..\licenses\libgpg-error.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -935,8 +935,8 @@ del ..\src\lock-obj-pub.native.h
 if exist ..\src\gpg-error.h (
 del ..\src\gpg-error.h
 )
-if exist $(OutDir)\include\gpg-error.h (
-del $(OutDir)\include\gpg-error.h
+if exist $(OutDir)..\..\include\gpg-error.h (
+del $(OutDir)..\..\include\gpg-error.h
 )
 if not exist .\src\err-sources.h (
 awk -f ..\src\mkstrtable.awk -v textidx=3 ..\src\err-sources.h.in &gt; .\src\err-sources.h
@@ -990,7 +990,7 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
       <ExceptionHandling>false</ExceptionHandling>
       <DisableSpecificWarnings>4996;4018;4005;4244;4267;4312;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <InterproceduralOptimization>SingleFile</InterproceduralOptimization>
-      <ProgramDataBaseFileName>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
@@ -999,16 +999,16 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <OutputFile>$(OutDir)\lib\x64\$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <TargetMachine>MachineX64</TargetMachine>
       <SubSystem>Windows</SubSystem>
       <AdditionalDependencies>Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-copy .\src\gpg-error.h $(OutDir)\include\
-mkdir $(OutDir)\licenses
-copy ..\COPYING.LIB $(OutDir)\licenses\libgpg-error.txt</Command>
+      <Command>mkdir $(OutDir)..\..\include
+copy .\src\gpg-error.h $(OutDir)..\..\include\
+mkdir $(OutDir)..\..\licenses
+copy ..\COPYING.LIB $(OutDir)..\..\licenses\libgpg-error.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -1041,8 +1041,8 @@ del ..\src\lock-obj-pub.native.h
 if exist ..\src\gpg-error.h (
 del ..\src\gpg-error.h
 )
-if exist $(OutDir)\include\gpg-error.h (
-del $(OutDir)\include\gpg-error.h
+if exist $(OutDir)..\..\include\gpg-error.h (
+del $(OutDir)..\..\include\gpg-error.h
 )
 if not exist .\src\err-sources.h (
 awk -f ..\src\mkstrtable.awk -v textidx=3 ..\src\err-sources.h.in &gt; .\src\err-sources.h
@@ -1101,10 +1101,10 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <OutputFile>$(OutDir)\bin\x86\$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
-      <ImportLibrary>$(OutDir)\lib\x86\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
       <ModuleDefinitionFile>libgpg-error.def</ModuleDefinitionFile>
       <LargeAddressAware>true</LargeAddressAware>
@@ -1113,10 +1113,10 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
       <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
     </Link>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-copy .\src\gpg-error.h $(OutDir)\include\
-mkdir $(OutDir)\licenses
-copy ..\COPYING.LIB $(OutDir)\licenses\libgpg-error.txt</Command>
+      <Command>mkdir $(OutDir)..\..\include
+copy .\src\gpg-error.h $(OutDir)..\..\include\
+mkdir $(OutDir)..\..\licenses
+copy ..\COPYING.LIB $(OutDir)..\..\licenses\libgpg-error.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -1149,8 +1149,8 @@ del ..\src\lock-obj-pub.native.h
 if exist ..\src\gpg-error.h (
 del ..\src\gpg-error.h
 )
-if exist $(OutDir)\include\gpg-error.h (
-del $(OutDir)\include\gpg-error.h
+if exist $(OutDir)..\..\include\gpg-error.h (
+del $(OutDir)..\..\include\gpg-error.h
 )
 if not exist .\src\err-sources.h (
 awk -f ..\src\mkstrtable.awk -v textidx=3 ..\src\err-sources.h.in &gt; .\src\err-sources.h
@@ -1209,10 +1209,10 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <OutputFile>$(OutDir)\bin\x64\$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
-      <ImportLibrary>$(OutDir)\lib\x64\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
       <ModuleDefinitionFile>libgpg-error.def</ModuleDefinitionFile>
       <AdditionalDependencies>Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -1220,10 +1220,10 @@ del /f /q $(OutDir)\licenses\libgpg-error.txt
       <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </Link>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-copy .\src\gpg-error.h $(OutDir)\include\
-mkdir $(OutDir)\licenses
-copy ..\COPYING.LIB $(OutDir)\licenses\libgpg-error.txt</Command>
+      <Command>mkdir $(OutDir)..\..\include
+copy .\src\gpg-error.h $(OutDir)..\..\include\
+mkdir $(OutDir)..\..\licenses
+copy ..\COPYING.LIB $(OutDir)..\..\licenses\libgpg-error.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -1256,8 +1256,8 @@ del ..\src\lock-obj-pub.native.h
 if exist ..\src\gpg-error.h (
 del ..\src\gpg-error.h
 )
-if exist $(OutDir)\include\gpg-error.h (
-del $(OutDir)\include\gpg-error.h
+if exist $(OutDir)..\..\include\gpg-error.h (
+del $(OutDir)..\..\include\gpg-error.h
 )
 if not exist .\src\err-sources.h (
 awk -f ..\src\mkstrtable.awk -v textidx=3 ..\src\err-sources.h.in &gt; .\src\err-sources.h
